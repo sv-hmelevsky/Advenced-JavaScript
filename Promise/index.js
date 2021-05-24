@@ -13,11 +13,11 @@ const promise = new Promise((resolve, reject) => {
 		setTimeout(() => {
 			requestedData.modified = true;
 			console.log("Data received", requestedData);
-			resolve();
+			resolve(requestedData);
 		}, 2000);
 	}, 2000);
 });
 
-promise.then(() => {
-	console.log("Promise resolve!");
+promise.then(data => {
+	console.log("Promise resolve!", data);
 });
