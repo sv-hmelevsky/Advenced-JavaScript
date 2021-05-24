@@ -10,14 +10,19 @@ const promise = new Promise((resolve, reject) => {
 			status: true
 		};
 		
-		setTimeout(() => {
-			requestedData.modified = true;
-			console.log("Data received", requestedData);
-			resolve(requestedData);
-		}, 2000);
+		resolve(requestedData);
 	}, 2000);
 });
 
 promise.then(data => {
-	console.log("Promise resolve!", data);
+	const additionPromise = new Promise((resolve, reject) => {
+		setTimeout(() => {
+			data.modified = true;
+			resolve(data);
+		}, 2000);
+	});
+	
+	additionPromise.then((clientData) => {
+		console.log("Client data", clientData);
+	});
 });
