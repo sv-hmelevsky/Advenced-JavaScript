@@ -19,7 +19,7 @@ promise
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			data.modified = true;
-			reject(data);
+			resolve(data);
 		}, 2000);
 	});
 })
