@@ -15,14 +15,12 @@ const promise = new Promise((resolve, reject) => {
 });
 
 promise.then(data => {
-	const additionPromise = new Promise((resolve, reject) => {
+	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			data.modified = true;
 			resolve(data);
 		}, 2000);
 	});
-	
-	additionPromise.then((clientData) => {
-		console.log("Client data", clientData);
-	});
+}).then((clientData) => {
+	console.log("Client data", clientData);
 });
