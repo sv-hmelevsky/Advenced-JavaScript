@@ -22,5 +22,8 @@ promise.then(data => {
 		}, 2000);
 	});
 }).then((clientData) => {
-	console.log("Client data", clientData);
+	clientData.fromPromice = true;
+	return clientData;
+}).then((data) => {
+	console.log("Chain promice data", data);
 });
